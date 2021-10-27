@@ -3,6 +3,20 @@
   hosts: Project_1
 
   tasks:
+  - name: edit sshd_config
+    lineinfile: dest=/etc/ssh/sshd_config
+                regexp=''
+                insertafter=OEF
+                line='Port 1834'
+    notify: restart ssh
+    handlers:
+  - name: restart ssh
+    service: sshd state=restarted
+  - name: continue setup
+    vars:
+      - ansible_ssh_port : 1834
+  
+  tasks:
   - name: stop apparmor
     command: systemctl stop apparmor.service
   - name: disable apparmor 
@@ -10,7 +24,7 @@
 
   - name: install ufw
     apt: pkg=ufw state=present update_cache=true
-    
+
   - name: ufw enable
     ufw:
       state: enabled
