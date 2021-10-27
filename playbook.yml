@@ -79,6 +79,11 @@
     copy:
         src: Dockerfile-balance
         dest: skillcloud-nginx/Dockerfile-balance   
+      
+ - name: Dockerfile-balace image
+    command: docker build -t Dockerfile-balance/balance:balance .
+  - name: Dockerfile-site image
+    command: docker build -t Dockerfile-site/site:site .
 
   - name: copy docker-compose.sh
     copy:
