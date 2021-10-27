@@ -58,4 +58,13 @@
   - name: install python3-pip  
     apt: pkg=python3-pip  state=present update_cache=true
   - name: install docker-compose  
-    apt: pkg=docker-compose state=present update_cache=true        
+    apt: pkg=docker-compose state=present update_cache=true  
+    
+  - name: restart ssh
+    command: systemctl restart sshd
+
+  - name: restart ufw
+    command: ufw reload
+
+  - name: reboot
+    reboot:     
