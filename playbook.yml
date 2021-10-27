@@ -12,7 +12,7 @@
   - name: ufw allow ssh
     ufw:
       rule: allow
-      name: ssh
+      port: 22
   - name: ufw allow port 80
     ufw:
       rule: allow
