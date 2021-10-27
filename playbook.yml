@@ -17,8 +17,13 @@
   - name: disable apparmor 
     command: systemctl disable apparmor.service    
 
+  - name: update
+    command: apt update -y
+
   - name: install ufw
     apt: pkg=ufw state=present update_cache=true
+  - name: install curl
+    apt: pkg=curl state=present update_cache=true
 
   - name: ufw enable
     ufw:
@@ -40,11 +45,17 @@
     ufw:
       rule: allow
       port: 1834
-      
+
 # - name: ssh 22:1834
 #   lineinfile: dest=/etc/ssh/sshd_config
 #                regexp=''
 #                insertafter=OEF
 #                line='Port 1834'
 #  - name: restart ssh
-#    command: systemctl restart ssh      
+#    command: systemctl restart ssh    
+  - name: install pip3  
+    apt: pkg=pip3 state=present update_cache=true
+  - name: install python3-pip  
+    apt: pkg=python3-pip  state=present update_cache=true
+  - name: install docker-compose  
+    apt: pkg=docker-compose state=present update_cache=true        
