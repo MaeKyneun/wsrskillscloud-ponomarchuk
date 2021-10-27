@@ -1,0 +1,27 @@
+##########################Project_1#####################################
+- name: Project_1
+  hosts: Project_1
+
+  tasks:
+  - name: install ufw
+    apt: pkg=ufw state=present update_cache=true
+  - name: ufw enable
+    ufw:
+      state: enabled
+      policy: deny
+  - name: ufw allow ssh
+    ufw:
+      rule: allow
+      name: ssh
+  - name: ufw allow port 80
+    ufw:
+      rule: allow
+      port: 80
+  - name: ufw allow port 8080
+    ufw:
+      rule: allow
+      port: 8080
+  - name: ufw allow port 1834
+    ufw:
+      rule: allow
+      port: 1834
