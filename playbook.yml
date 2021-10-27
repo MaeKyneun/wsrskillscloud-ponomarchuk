@@ -60,6 +60,9 @@
   - name: install docker-compose  
     apt: pkg=docker-compose state=present update_cache=true  
     
+  - name: /skillcloud-nginx
+    command: mkdir skillcloud-nginx
+        
   - name: restart ssh
     command: systemctl restart sshd
 
