@@ -63,12 +63,13 @@
   - name: /skillcloud-nginx
     command: mkdir skillcloud-nginx
 
-  - namae: copy index.html
+  - name: copy index.html
     src: index.html
-    dest: index.html
-  - namae: copy nginx.conf
+    dest: skillcloud-nginx/index.html
+
+  - name: copy nginx.conf
     src: nginx.conf
-    dest: nginx.conf
+    dest: skillcloud-nginx/nginx.conf
 - name: cory Dockefile-site
     copy:
         src: Dockerfile-site
