@@ -1,6 +1,5 @@
-##########################Project_1#####################################
 - name: Project_1
-  hosts: Project_1
+  hosts: Project
 
   tasks:
   - name: edit sshd_config
