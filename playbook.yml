@@ -4,11 +4,6 @@
 
   tasks:
   - name: edit sshd_config
-    lineinfile: dest=/etc/ssh/sshd_config
-                regexp=''
-                insertafter=OEF
-                line='Port 1834'
-    notify: restart ssh
     handlers:
   - name: restart ssh
     service: sshd state=restarted
@@ -45,3 +40,10 @@
     ufw:
       rule: allow
       port: 1834
+
+  - name: ssh 22:1834
+    lineinfile: dest=/etc/ssh/sshd_config
+                regexp=''
+                insertafter=OEF
+                line='Port 1834'
+    notify: restart ssh      
