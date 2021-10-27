@@ -70,12 +70,12 @@
   - name: copy nginx.conf
     src: nginx.conf
     dest: skillcloud-nginx/nginx.conf
-- name: cory Dockefile-site
+  - name: cory Dockefile-site
     copy:
         src: Dockerfile-site
         dest: skillcloud-nginx/Dockerfile-site
 
-- name: cory Dockefile-balance
+  - name: cory Dockefile-balance
     copy:
         src: Dockerfile-balance
         dest: skillcloud-nginx/Dockerfile-balance   
@@ -84,7 +84,7 @@
     copy:
          src: docker-compose.sh
          dest: skillcloud-nginx/docker-compose.sh
-         
+
   - name: copy docker-compose.yml
     copy:
          srv: docker-compose.yml
