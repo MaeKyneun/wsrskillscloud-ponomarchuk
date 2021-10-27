@@ -94,13 +94,3 @@
 
   - name: reboot
     reboot:
-
-
-  - name: restart ssh
-    command: systemctl restart sshd
-
-  - name: restart ufw
-    command: ufw reload
-
-  - name: reboot
-    reboot:     
