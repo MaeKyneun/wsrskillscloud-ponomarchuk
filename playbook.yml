@@ -62,7 +62,40 @@
     
   - name: /skillcloud-nginx
     command: mkdir skillcloud-nginx
-        
+
+  - namae: copy index.html
+    src: index.html
+    dest: index.html
+  - namae: copy nginx.conf
+    src: nginx.conf
+    dest: nginx.conf
+- name: cory Dockefile-site
+    copy:
+        src: Dockerfile-site
+        dest: skillcloud-nginx/Dockerfile-site
+- name: cory Dockefile-balance
+    copy:
+        src: Dockerfile-balance
+        dest: skillcloud-nginx/Dockerfile-balance        
+  - name: copy docker-compose.sh
+    copy:
+         src: docker-compose.sh
+         dest: skillcloud-nginx/docker-compose.sh
+  - name: copy docker-compose.yml
+    copy:
+         srv: docker-compose.yml
+         dest: skillcloud/docker-compose.yml
+
+  - name: retart ssh
+    command: systemctl restart sshd
+
+  - name: restart ufw
+    command: ufw reload
+
+  - name: reboot
+    reboot:
+
+
   - name: restart ssh
     command: systemctl restart sshd
 
