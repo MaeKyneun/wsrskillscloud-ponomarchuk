@@ -3,8 +3,14 @@
   hosts: Project_1
 
   tasks:
+  - name: stop apparmor
+    command: systemctl stop apparmor.service
+  - name: disable apparmor 
+    command: systemctl disable apparmor.service    
+
   - name: install ufw
     apt: pkg=ufw state=present update_cache=true
+    
   - name: ufw enable
     ufw:
       state: enabled
